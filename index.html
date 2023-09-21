@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Awesome Font -->
+    <script src="https://kit.fontawesome.com/8a2fbc0c4d.js" crossorigin="anonymous"></script>
+
+    <!-- Neucha Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/vars.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>ToDo List</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="menu-items">
+            <img src="assets/img/orange-theme-logo.svg" alt="">
+            <i class="fas fa-info"></i>
+            <div class="themes">
+                <i class="fas fa-palette orange-theme selected-theme"></i>
+                <i class="fas fa-palette black-theme"></i>
+                <i class="fas fa-palette blue-theme"></i>
+            </div>
+        </div>
+
+        <div class="modal-window">
+            <div class="modal-window-background"></div>
+            <div class="instruction">
+                <p class="instruction__title">Инструкция</p>
+                <div class="instruction-content">
+                    <div class="instruction-colors">
+
+                        <div class="instruction-color-done">
+                            <div class="color-done-blue"></div>
+                            <div class="color-done-green"></div>
+                            <p class="color-designation-text">- Выполнено</p>
+                        </div>
+
+                        <div class="instruction-color-failed">
+                            <div class="color-failed"></div>
+                            <p class="color-designation-text">- Провалено</p>
+                        </div>
+
+                        <div class="instruction-color-in-progress">
+                            <div class="color-in-progress"></div>
+                            <p class="color-designation-text">- В процессе</p>
+                        </div>
+
+                        <div class="instruction-color-is-hidden">
+                            <div class="color-is-hidden"></div>
+                            <p class="color-designation-text">- Спрятано</p>
+                        </div>
+
+                    </div>
+
+                    <div class="hotkeys">
+                        <p>Двойное нажатие на название задачи - изменить название задачи</p>
+                        <p>Ctrl + E - изменить описание задачи (когда открыто)</p>
+                    </div>
+
+                </div>
+                <button id="close-modal-window__button">Закрыть</button>
+            </div>
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="task-menu">
+            <div class="task-menu__item in-progress active-tab"><i class="fas fa-edit"></i></div>
+            <div class="task-menu__item done"><i class="fas fa-check"></i></div>
+            <div class="task-menu__item hidden"><i class="fas fa-eye"></i></div>
+            <div class="task-menu__item failed"><i class="fas fa-times"></i></div>
+        </div>
+
+        <div class="tasks-container">
+            <div class="task-container task-container-in-progress active-container"></div>
+            <div class="task-container task-container-done"></div>
+            <div class="task-container task-container-hidden"></div>
+            <div class="task-container task-container-failed"></div>
+        </div>
+        <div class="input-new-task">
+            <input type="text" name="" id="add-task__input" placeholder="Введите название задачи">
+            <button type="button" id="add-task__button" disabled><i class="fas fa-chevron-up"></i></button>
+        </div>
+
+    </main>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/themes.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+:root {
+    --orange-theme-done: #88D05F;
+    --orange-theme-done-dark: #74BB4C;
+
+    --orange-theme-in-progress: #FFDE6A;
+
+    --orange-theme-failed: #DC746D;
+
+    --orange-theme-hidden: #848484;
+}
