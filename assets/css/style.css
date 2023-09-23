@@ -196,6 +196,11 @@ body {
     -webkit-text-stroke: .7px #92BABC;
 }
 
+.pink-theme {
+    color: #FF95FF;
+    -webkit-text-stroke: .7px white;
+}
+
 .selected-theme{
     box-shadow: 1px 1px 1px  white;
     border-radius: 100%;
