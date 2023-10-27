@@ -1,7 +1,8 @@
 // Select theme
 const themeIcon = document.querySelectorAll('.themes i');
 
-const selectedThemes = [themeIcon[0]]
+const selectedThemes = [themeIcon[0]];
+
 for (i = 0; i < themeIcon.length; i++) {
     const themeIconIndex = themeIcon[i]
     themeIconIndex.addEventListener('click', () => {
@@ -11,8 +12,6 @@ for (i = 0; i < themeIcon.length; i++) {
         selectedThemes.shift();
     })
 }
-
-
 
 // Const for change color
 const body = document.querySelector('body');
@@ -27,11 +26,8 @@ const taskCheckIcon = document.querySelector('.fa-check');
 const instruction = document.querySelector('.instruction');
 const activeContainer = document.querySelector('.active-container');
 
-// Changed colors
+// Change colors
 const themes = document.querySelector('.themes');
-
-
-
 themeIcon[0].addEventListener('click', () => {
     themes.style.border = '2px solid black';
     body.style.background = '#FFC24B';
@@ -50,15 +46,15 @@ themeIcon[0].addEventListener('click', () => {
 
     // Change color when theme changes
     const taskText = document.querySelectorAll('.task__text');
-    const iconEyeTaskOptions = document.querySelectorAll('.fa-eye-slash');
+    const iconFailedTask = document.querySelectorAll('.fa-times');
     const iconCheckTaskOptions = document.querySelectorAll('.check-in-progress');
     const taskMoveArrowsContainer = document.querySelectorAll('.task-move-arrows');
     const taskDeleteIcon = document.querySelectorAll('.fa-trash');
 
-    const themeOneElements = [taskText, iconEyeTaskOptions, taskMoveArrowsContainer, taskDeleteIcon];
-    
+    const themeOneElements = [taskText, iconFailedTask, taskMoveArrowsContainer, taskDeleteIcon];
+
     themeOneElements.forEach(element => {
-        for (i =0; i < taskText.length; i++) {
+        for (i = 0; i < taskText.length; i++) {
             element[i].style.color = 'white';
             iconCheckTaskOptions[i].style.backgroundColor = 'white'
         }
@@ -83,15 +79,15 @@ themeIcon[1].addEventListener('click', () => {
 
     // Change color when theme changes
     const taskText = document.querySelectorAll('.task__text');
-    const iconEyeTaskOptions = document.querySelectorAll('.fa-eye-slash');
+    const iconFailedTask = document.querySelectorAll('.fa-times');
     const iconCheckTaskOptions = document.querySelectorAll('.check-in-progress');
     const taskMoveArrowsContainer = document.querySelectorAll('.task-move-arrows');
     const taskDeleteIcon = document.querySelectorAll('.fa-trash');
 
-    const themeTwoElements = [taskText, iconEyeTaskOptions, taskMoveArrowsContainer, taskDeleteIcon];
-    
+    const themeTwoElements = [taskText, iconFailedTask, taskMoveArrowsContainer, taskDeleteIcon];
+
     themeTwoElements.forEach(element => {
-        for (i =0; i < taskText.length; i++) {
+        for (i = 0; i < taskText.length; i++) {
             element[i].style.color = '#2F2F2F';
             iconCheckTaskOptions[i].style.backgroundColor = '#2F2F2F'
         }
@@ -114,21 +110,20 @@ themeIcon[2].addEventListener('click', () => {
     instruction.style.color = 'white';
     logo.setAttribute('src', 'assets/img/nord-theme-logo.svg');
 
-    
+
     // Change color when theme changes
     const taskText = document.querySelectorAll('.task__text');
-    const iconEyeTaskOptions = document.querySelectorAll('.fa-eye-slash');
+    const iconFailedTask = document.querySelectorAll('.fa-times');
     const iconCheckTaskOptions = document.querySelectorAll('.check-in-progress');
     const taskMoveArrowsContainer = document.querySelectorAll('.task-move-arrows');
     const taskDeleteIcon = document.querySelectorAll('.fa-trash');
 
-    const themeThreeElements = [taskText, iconEyeTaskOptions, taskMoveArrowsContainer, taskDeleteIcon];
-    
+    const themeThreeElements = [taskText, iconFailedTask, taskMoveArrowsContainer, taskDeleteIcon];
+
     themeThreeElements.forEach(element => {
-        for (i =0; i < taskText.length; i++) {
+        for (i = 0; i < taskText.length; i++) {
             element[i].style.color = '#2E3442';
             iconCheckTaskOptions[i].style.backgroundColor = '#2E3442'
         }
     });
 });
-

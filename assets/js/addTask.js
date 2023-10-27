@@ -1,4 +1,3 @@
-
 // Add task const's
 const taskContainer = document.querySelector('.task-container-in-progress');
 const addTaskInput = document.querySelector('#add-task__input');
@@ -7,6 +6,9 @@ const addTaskInput = document.querySelector('#add-task__input');
 const addTaskButton = document.querySelector('#add-task__button');
 const addTaskButtonArrow = document.querySelector('#add-task__button i');
 
+// Tasks containers
+const doneContainer = document.querySelector('.task-container-done');
+const failedContainer = document.querySelector('.task-container-failed')
 
 // Add task func
 function addTask () {
@@ -26,20 +28,19 @@ function addTask () {
     const task = document.createElement('div');
     const taskOptions = document.createElement('div');
     const iconCheckTaskOptions = document.createElement('i');
-    const iconEyeTaskOptions = document.createElement('i');
+    const iconFailedTask = document.createElement('i');
     const taskText = document.createElement('p');
     const taskSettings = document.createElement('div');
     const taskMoveArrowsContainer = document.createElement('div');
     const taskSettingsMoveArrowUp = document.createElement('i');
     const taskSettingsMoveArrowDown = document.createElement('i');
-
     const taskDeleteIcon = document.createElement('i');
 
     // Add classes to elements
     task.classList.add('task', 'in-progress');
     taskOptions.classList.add('task-options');
     iconCheckTaskOptions.classList.add('fas', 'fa-check', 'check-in-progress');
-    iconEyeTaskOptions.classList.add('fas', 'fa-eye-slash');
+    iconFailedTask.classList.add('fas', 'fa-times');
     taskText.classList.add('task__text');
     taskText.textContent = addTaskInput.value;
     taskSettings.classList.add('task-settings');
@@ -53,7 +54,7 @@ function addTask () {
     taskContainer.appendChild(task);
     task.appendChild(taskOptions);
     taskOptions.appendChild(iconCheckTaskOptions);
-    taskOptions.appendChild(iconEyeTaskOptions);
+    taskOptions.appendChild(iconFailedTask);
     taskOptions.appendChild(taskText);
     task.append(taskSettings);
     taskSettings.appendChild(taskMoveArrowsContainer);
@@ -62,22 +63,35 @@ function addTask () {
     taskSettings.appendChild(taskDeleteIcon)
     addTaskInput.value = '';
 
+    // Change task color to match theme color
     if (themeIcon[0].classList.contains('selected-theme')) {
         taskText.style.color = 'white ';
-        iconEyeTaskOptions.style.color = 'white';
+        iconFailedTask.style.color = 'white';
         iconCheckTaskOptions.style.backgroundColor = 'white';
         taskMoveArrowsContainer.style.color = 'white';
     } else if (themeIcon[1].classList.contains('selected-theme')) {
         taskText.style.color = '#2F2F2F ';
-        iconEyeTaskOptions.style.color = '#2F2F2F';
+        iconFailedTask.style.color = '#2F2F2F';
         iconCheckTaskOptions.style.backgroundColor = '#2F2F2F';
         taskMoveArrowsContainer.style.color = '#2F2F2F';
+        taskDeleteIcon.style.color = '#2F2F2F';
     } else {
         taskText.style.color = '#2E3442';
-        iconEyeTaskOptions.style.color = '#2E3442';
+        iconFailedTask.style.color = '#2E3442';
         iconCheckTaskOptions.style.backgroundColor = '#2E3442';
         taskMoveArrowsContainer.style.color = '#2E3442';
+        taskDeleteIcon.style.color = '#2E3442';
     }
+
+    // Move task to done container
+    iconCheckTaskOptions.addEventListener('click', () => {
+        doneContainer.appendChild(iconCheckTaskOptions.parentElement.parentElement);
+    })
+
+    // Move task to failed container
+    iconFailedTask.addEventListener('click', () => {
+        failedContainer.appendChild(iconCheckTaskOptions.parentElement.parentElement)
+    })
 
     // Delete task
     taskDeleteIcon.addEventListener('click', function () {
