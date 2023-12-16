@@ -17,6 +17,10 @@ for (i = 0; i < taskMenuItems.length; i++) {
         clickedTabs[1].classList.remove('active-tab');
 
         // Containers
+        if (tasksContainersIndex === taskContainers[4]) {
+            return
+        }
+        
         tasksContainersIndex.classList.add('active-container');
         activeContainers.unshift(tasksContainersIndex);
         activeContainers[1].classList.remove('active-container');

@@ -82,20 +82,48 @@
 
         <div class="task-menu">
             <div class="task-menu__item in-progress active-tab"><i class="fas fa-edit"></i></div>
-            <div class="task-menu__item done"><i class="fas fa-check"></i></div>
+            <div class="task-menu__item done"><i class="fas fa-check" style="color: white;"></i></div>
             <div class="task-menu__item hidden"><i class="fas fa-eye"></i></div>
             <div class="task-menu__item failed"><i class="fas fa-times"></i></div>
+            <div class="task-menu__item save"><i class="fas fa-save"></i></div>
         </div>
 
-        <div class="tasks-container">
-            <div class="task-container task-container-in-progress active-container"></div>
-            <div class="task-container task-container-done"></div>
-            <div class="task-container task-container-hidden"></div>
-            <div class="task-container task-container-failed"></div>
-        </div>
-        <div class="input-new-task">
-            <input type="text" name="" id="add-task__input" placeholder="Введите название задачи">
-            <button type="button" id="add-task__button" disabled><i class="fas fa-chevron-up"></i></button>
+        <div class="main-content-wrapper">
+            
+            <div class="tasks-container">
+                <div class="task-container task-container-in-progress active-container"></div>
+                <div class="task-container task-container-done"></div>
+                <div class="task-container task-container-hidden"></div>
+                <div class="task-container task-container-failed"></div>
+            </div>
+            <div class="input-new-task">
+                <input type="text" name="" id="add-task__input" placeholder="Введите название задачи">
+                <button type="button" id="add-task__button" disabled><i class="fas fa-chevron-up"></i></button>
+            </div>
+
+            <div class="task-extended task-extended-hidden">
+                <i class="fas fa-times task-extended-close"></i>
+                <div class="task-extended-options">
+                    <div>
+                        <p class="extended-title">Do something now</p>
+                    </div>
+                    <div class="extended-options">
+                        <i class="fas fa-check extended-options-item"></i>
+                        <i class="fas fa-eye extended-options-item"></i>
+                        <i class="fas fa-times extended-options-item"></i>
+                    </div>
+                    <div class="last-edit-date">
+                            <p>last edit <span>5 march 0:49</span></p>
+                    </div>
+                </div>
+                <div class="task-extended-description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <div class="task-extended-photo">
+                    <img src="assets/img/img.png" alt="">
+                </div>
+            </div>
+
         </div>
 
     </main>

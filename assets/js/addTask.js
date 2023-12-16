@@ -1,4 +1,4 @@
-// Add task const's
+// Add task consts
 const taskContainer = document.querySelector('.task-container-in-progress');
 const addTaskInput = document.querySelector('#add-task__input');
 
@@ -10,8 +10,12 @@ const addTaskButtonArrow = document.querySelector('#add-task__button i');
 const doneContainer = document.querySelector('.task-container-done');
 const failedContainer = document.querySelector('.task-container-failed')
 
+// Extended task consts
+const extendedTaskContainer = document.querySelector('.task-extended');
+const closeExtendedTaskContainer = document.querySelector('.task-extended-close');
+
 // Add task func
-function addTask () {
+function addTask() {
     this.style.transform = 'scale(1.1)';
     addTaskButtonArrow.style.animation = 'arrow-cycle 1s'
 
@@ -49,7 +53,6 @@ function addTask () {
     taskSettingsMoveArrowDown.classList.add('fas', 'fa-chevron-down');
     taskDeleteIcon.classList.add('fas', 'fa-trash');
 
-
     // Append elements
     taskContainer.appendChild(task);
     task.appendChild(taskOptions);
@@ -83,14 +86,47 @@ function addTask () {
         taskDeleteIcon.style.color = '#2E3442';
     }
 
+    // Extended task
+    function toggleExtendedTask(button) {
+        if (button === task) {
+            button.addEventListener('click', () => {
+                extendedTaskContainer.classList.remove('task-extended-hidden');
+                const extendedTaskTitle = document.querySelector('.extended-title');
+                extendedTaskTitle.textContent = taskText.textContent;
+            })
+        } else if (button === closeExtendedTaskContainer) {
+            button.addEventListener('click', () => {
+                extendedTaskContainer.classList.add('task-extended-hidden');
+            })
+        }
+    }
+    toggleExtendedTask(task);
+    toggleExtendedTask(closeExtendedTaskContainer);
+
     // Move task to done container
     iconCheckTaskOptions.addEventListener('click', () => {
+
+        const iconParent = iconCheckTaskOptions.parentElement.parentElement;
+        const getTaskStatus = iconParent.classList[1];
         doneContainer.appendChild(iconCheckTaskOptions.parentElement.parentElement);
+        iconParent.classList.remove(getTaskStatus);
+        iconParent.classList.add('done');
     })
 
     // Move task to failed container
     iconFailedTask.addEventListener('click', () => {
-        failedContainer.appendChild(iconCheckTaskOptions.parentElement.parentElement)
+        const iconParent = iconFailedTask.parentElement.parentElement;
+        const getTaskStatus = iconParent.classList[1];
+        failedContainer.appendChild(iconCheckTaskOptions.parentElement.parentElement);
+        iconParent.classList.remove(getTaskStatus);
+        iconParent.classList.add('failed');
+    })
+
+    let taskCounter = 0;
+    const saveTaskButton = document.querySelector('.fa-save');
+    saveTaskButton.addEventListener('click', () => {
+        taskCounter++;
+        localStorage.setItem(`task${taskCounter}`, JSON.stringify(taskText))
     })
 
     // Delete task
