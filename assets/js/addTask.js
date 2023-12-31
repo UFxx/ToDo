@@ -2,6 +2,9 @@
 const taskContainer = document.querySelector('.task-container-in-progress');
 const addTaskInput = document.querySelector('#add-task__input');
 
+const taskMenu = document.querySelector('.task-menu');
+const newTaskInputContainer = document.querySelector('.input-new-task');
+
 // Input button animation && add new task
 const addTaskButton = document.querySelector('#add-task__button');
 const addTaskButtonArrow = document.querySelector('#add-task__button i');
@@ -93,10 +96,22 @@ function addTask() {
                 extendedTaskContainer.classList.remove('task-extended-hidden');
                 const extendedTaskTitle = document.querySelector('.extended-title');
                 extendedTaskTitle.textContent = taskText.textContent;
+
+                taskContainer.style.left = '3.5%';
+                taskContainer.style.transform = 'translateX(0)';
+                taskMenu.style.left = 0;
+                newTaskInputContainer.style.left = '3.5%';
+                newTaskInputContainer.style.transform = 'translateX(0)';
             })
         } else if (button === closeExtendedTaskContainer) {
             button.addEventListener('click', () => {
                 extendedTaskContainer.classList.add('task-extended-hidden');
+
+                taskContainer.style.left = '50%';
+                taskContainer.style.transform = 'translateX(-50%)';
+                taskMenu.style.left = '32%';
+                newTaskInputContainer.style.left = '50%';
+                newTaskInputContainer.style.transform = 'translateX(-50%)';
             })
         }
     }
