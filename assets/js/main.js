@@ -1,5 +1,5 @@
 // Task menu animation
-const taskMenu = document.querySelectorAll('.task-menu div')
+// const taskMenu = document.querySelectorAll('.task-menu div')
 const taskMenuItems = document.querySelectorAll('.task-menu__item');
 const taskContainers = document.querySelectorAll('.task-container');
 
