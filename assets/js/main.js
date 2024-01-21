@@ -1,9 +1,8 @@
 // Task menu animation
-// const taskMenu = document.querySelectorAll('.task-menu div')
 const taskMenuItems = document.querySelectorAll('.task-menu__item');
 const taskContainers = document.querySelectorAll('.task-container');
 
-const clickedTabs = [taskMenu[0]];
+const clickedTabs = [taskMenuItems[0]];
 const activeContainers = [taskContainers[0]];
 for (i = 0; i < taskMenuItems.length; i++) {
     const tasksContainersIndex = taskContainers[i];
@@ -14,11 +13,12 @@ for (i = 0; i < taskMenuItems.length; i++) {
         clickedTabs.unshift(this);
         clickedTabs[1].classList.remove('active-tab');
 
-        // Containers
-        if (tasksContainersIndex === taskContainers[4]) {
+        // taskContainers[3] === save btn
+        if (tasksContainersIndex === taskContainers[3]) {
             return
         }
         
+        // Containers
         tasksContainersIndex.classList.add('active-container');
         activeContainers.unshift(tasksContainersIndex);
         activeContainers[1].classList.remove('active-container');

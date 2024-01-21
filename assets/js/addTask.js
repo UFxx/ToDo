@@ -20,11 +20,11 @@ const closeExtendedTaskContainer = document.querySelector('.task-extended-close'
 
 // Add task func
 function addTask() {
-    this.style.transform = 'scale(1.1)';
-    addTaskButtonArrow.style.animation = 'arrow-cycle 1s'
+    addTaskButton.style.transform = 'scale(1.1)';
+    addTaskButtonArrow.style.animation = 'arrow-cycle 1s';
 
     setTimeout(() => {
-        this.style.transform = 'scale(1)';
+        addTaskButton.style.transform = 'scale(1)';
     }, 300);
 
     setTimeout(() => {
@@ -70,63 +70,6 @@ function addTask() {
     taskSettings.appendChild(taskDeleteIcon)
     addTaskInput.value = '';
 
-    // Change task color to match theme color
-    if (themeIcon[0].classList.contains('selected-theme')) {
-        taskText.style.color = 'white ';
-        iconFailedTask.style.color = 'white';
-        iconCheckTaskOptions.style.backgroundColor = 'white';
-        taskMoveArrowsContainer.style.color = 'white';
-        taskDeleteIcon.style.color = 'white';
-    } else if (themeIcon[1].classList.contains('selected-theme')) {
-        taskText.style.color = '#2F2F2F ';
-        iconFailedTask.style.color = '#2F2F2F';
-        iconCheckTaskOptions.style.backgroundColor = '#2F2F2F';
-        taskMoveArrowsContainer.style.color = '#2F2F2F';
-        taskDeleteIcon.style.color = '#2F2F2F';
-    } else {
-        taskText.style.color = '#2E3442';
-        iconFailedTask.style.color = '#2E3442';
-        iconCheckTaskOptions.style.backgroundColor = '#2E3442';
-        taskMoveArrowsContainer.style.color = '#2E3442';
-        taskDeleteIcon.style.color = '#2E3442';
-    }
-    
-    // Extended task
-    function toggleExtendedTask(button) {
-        if (button === task) {
-            button.addEventListener('click', () => {
-                extendedTaskContainer.classList.remove('task-extended-hidden');
-                const extendedTaskTitle = document.querySelector('.extended-title');
-                extendedTaskTitle.textContent = taskText.textContent;
-
-
-                taskContainer.forEach(element => {
-                    element.style.left = '3.5%';
-                    element.style.transform = 'translateX(0)';
-                });
-
-                taskMenu.style.left = 0;
-                newTaskInputContainer.style.left = '3.5%';
-                newTaskInputContainer.style.transform = 'translateX(0)';
-            })
-        } else if (button === closeExtendedTaskContainer) {
-            button.addEventListener('click', () => {
-                extendedTaskContainer.classList.add('task-extended-hidden');
-
-                taskContainer.forEach(element => {
-                    element.style.left = '50%';
-                    element.style.transform = 'translateX(-50%)';
-                });
-
-                taskMenu.style.left = '32%';
-                newTaskInputContainer.style.left = '50%';
-                newTaskInputContainer.style.transform = 'translateX(-50%)';
-            })
-        }
-    }
-    toggleExtendedTask(task);
-    toggleExtendedTask(closeExtendedTaskContainer);
-
     // Move task to done container
     iconCheckTaskOptions.addEventListener('click', () => {
 
@@ -146,13 +89,6 @@ function addTask() {
         iconParent.classList.add('failed');
     })
 
-    let taskCounter = 0;
-    const saveTaskButton = document.querySelector('.fa-save');
-    saveTaskButton.addEventListener('click', () => {
-        taskCounter++;
-        localStorage.setItem(`task${taskCounter}`, JSON.stringify(taskText))
-    })
-
     // Delete task
     taskDeleteIcon.addEventListener('click', function () {
         task.style.animation = 'delete-task .4s';
@@ -165,17 +101,19 @@ function addTask() {
     setTimeout(() => {
         addTaskButton.setAttribute('disabled', '')
     }, 0)
-    addTask();
 
-    for (i = 0; i < selectedThemes.length; i++) {
-        if (selectedThemes[1].classList.contains('selected-theme')) {
-            task.style.color = '#2F2F2F'
-        };
-    }
 }
 
+// Add task by click button
 addTaskButton.addEventListener('click', addTask, function () {
     addTask();
+});
+
+// Add task by click enter
+addTaskInput.addEventListener('keydown', function (event) {
+    if (event.code == 'Enter') {
+        addTask();
+    }
 });
 
 addTaskInput.addEventListener('input', function () {
