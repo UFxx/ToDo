@@ -1,5 +1,5 @@
 // Add task consts
-const taskContainer = document.querySelector('.task-container-in-progress');
+const taskContainer = document.querySelectorAll('.task-container');
 const addTaskInput = document.querySelector('#add-task__input');
 
 const taskMenu = document.querySelector('.task-menu');
@@ -11,7 +11,8 @@ const addTaskButtonArrow = document.querySelector('#add-task__button i');
 
 // Tasks containers
 const doneContainer = document.querySelector('.task-container-done');
-const failedContainer = document.querySelector('.task-container-failed')
+const failedContainer = document.querySelector('.task-container-failed');
+const inProgressContainer = document.querySelector('.task-container-in-progress');
 
 // Extended task consts
 const extendedTaskContainer = document.querySelector('.task-extended');
@@ -57,7 +58,7 @@ function addTask() {
     taskDeleteIcon.classList.add('fas', 'fa-trash');
 
     // Append elements
-    taskContainer.appendChild(task);
+    inProgressContainer.appendChild(task);
     task.appendChild(taskOptions);
     taskOptions.appendChild(iconCheckTaskOptions);
     taskOptions.appendChild(iconFailedTask);
@@ -75,6 +76,7 @@ function addTask() {
         iconFailedTask.style.color = 'white';
         iconCheckTaskOptions.style.backgroundColor = 'white';
         taskMoveArrowsContainer.style.color = 'white';
+        taskDeleteIcon.style.color = 'white';
     } else if (themeIcon[1].classList.contains('selected-theme')) {
         taskText.style.color = '#2F2F2F ';
         iconFailedTask.style.color = '#2F2F2F';
@@ -88,7 +90,7 @@ function addTask() {
         taskMoveArrowsContainer.style.color = '#2E3442';
         taskDeleteIcon.style.color = '#2E3442';
     }
-
+    
     // Extended task
     function toggleExtendedTask(button) {
         if (button === task) {
@@ -97,8 +99,12 @@ function addTask() {
                 const extendedTaskTitle = document.querySelector('.extended-title');
                 extendedTaskTitle.textContent = taskText.textContent;
 
-                taskContainer.style.left = '3.5%';
-                taskContainer.style.transform = 'translateX(0)';
+
+                taskContainer.forEach(element => {
+                    element.style.left = '3.5%';
+                    element.style.transform = 'translateX(0)';
+                });
+
                 taskMenu.style.left = 0;
                 newTaskInputContainer.style.left = '3.5%';
                 newTaskInputContainer.style.transform = 'translateX(0)';
@@ -107,8 +113,11 @@ function addTask() {
             button.addEventListener('click', () => {
                 extendedTaskContainer.classList.add('task-extended-hidden');
 
-                taskContainer.style.left = '50%';
-                taskContainer.style.transform = 'translateX(-50%)';
+                taskContainer.forEach(element => {
+                    element.style.left = '50%';
+                    element.style.transform = 'translateX(-50%)';
+                });
+
                 taskMenu.style.left = '32%';
                 newTaskInputContainer.style.left = '50%';
                 newTaskInputContainer.style.transform = 'translateX(-50%)';

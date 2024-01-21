@@ -3,8 +3,6 @@
 const taskMenuItems = document.querySelectorAll('.task-menu__item');
 const taskContainers = document.querySelectorAll('.task-container');
 
-const tasksContainers = document.querySelectorAll('.task-container');
-
 const clickedTabs = [taskMenu[0]];
 const activeContainers = [taskContainers[0]];
 for (i = 0; i < taskMenuItems.length; i++) {

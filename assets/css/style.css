@@ -204,30 +204,26 @@ a {
     background-color: white;
 }
 
-.tasks-container {
-    width: 420px;
-    height: 570px;
-    overflow: hidden;
-}
-
 .task-container {
     position: relative;
-
+    
     width: 420px;
     height: 570px;
     padding: 15px 15px;
     font-size: 18px;
-
+    
     background-color: white;
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.50);
-
+    
     border-radius: 30px;
     border-top-left-radius: 0px;
-
+    
     top: 200%;
     left: 50%;
     transform: translateX(-50%);
 
+    overflow-x: hidden; 
+    
     transition: .3s ease top, .3s ease left, .3s ease transform;
 }
 

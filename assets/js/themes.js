@@ -1,6 +1,5 @@
 // Select theme
 const themeIcon = document.querySelectorAll('.themes i');
-
 const selectedThemes = [themeIcon[0]];
 
 for (i = 0; i < themeIcon.length; i++) {
@@ -37,26 +36,27 @@ themeIcon[0].addEventListener('click', () => {
     taskInputButton.style.backgroundColor = 'white';
     taskInputButton.style.color = 'black';
     for (i = 0; i < taskMenuIcons.length; i++) {
-        taskContainers[i].style.backgroundColor = 'white';
+        // taskContainers[i].style.backgroundColor = 'white';
         taskMenuIcons[i].style.color = 'white';
     }
     logo.setAttribute('src', 'assets/img/orange-theme-logo.svg');
     instruction.style.backgroundColor = 'white';
     instruction.style.color = 'black';
-
+    
     // Change color when theme changes
+
     const taskText = document.querySelectorAll('.task__text');
     const iconFailedTask = document.querySelectorAll('.fa-times');
     const iconCheckTaskOptions = document.querySelectorAll('.check-in-progress');
     const taskMoveArrowsContainer = document.querySelectorAll('.task-move-arrows');
-    const taskDeleteIcon = document.querySelectorAll('.fa-trash');
 
-    const themeOneElements = [taskText, iconFailedTask, taskMoveArrowsContainer, taskDeleteIcon];
-
+    
+    const themeOneElements = [taskText, iconFailedTask, taskMoveArrowsContainer,  ];
+    
     themeOneElements.forEach(element => {
         for (i = 0; i < taskText.length; i++) {
             element[i].style.color = 'white';
-            iconCheckTaskOptions[i].style.backgroundColor = 'white'
+            iconCheckTaskOptions[i].style.backgroundColor = 'white';
         }
     });
 });
@@ -70,7 +70,7 @@ themeIcon[1].addEventListener('click', () => {
     taskInputButton.style.backgroundColor = '#2F2F2F';
     taskInputButton.style.color = 'black';
     for (i = 0; i < taskMenuIcons.length; i++) {
-        taskContainers[i].style.backgroundColor = '#2f2f2f';
+        // taskContainers[i].style.backgroundColor = '#2f2f2f';
         taskMenuIcons[i].style.color = '#262626';
     }
     logo.setAttribute('src', 'assets/img/black-theme-logo.svg');
@@ -78,13 +78,13 @@ themeIcon[1].addEventListener('click', () => {
     instruction.style.color = 'white';
 
     // Change color when theme changes
+    
     const taskText = document.querySelectorAll('.task__text');
     const iconFailedTask = document.querySelectorAll('.fa-times');
     const iconCheckTaskOptions = document.querySelectorAll('.check-in-progress');
     const taskMoveArrowsContainer = document.querySelectorAll('.task-move-arrows');
-    const taskDeleteIcon = document.querySelectorAll('.fa-trash');
 
-    const themeTwoElements = [taskText, iconFailedTask, taskMoveArrowsContainer, taskDeleteIcon];
+    const themeTwoElements = [taskText, iconFailedTask, taskMoveArrowsContainer,  ];
 
     themeTwoElements.forEach(element => {
         for (i = 0; i < taskText.length; i++) {
@@ -103,7 +103,7 @@ themeIcon[2].addEventListener('click', () => {
     taskInputButton.style.backgroundColor = '#2E3442';
     taskInputButton.style.color = '#D4D7DF';
     for (i = 0; i < taskMenuIcons.length; i++) {
-        taskContainers[i].style.backgroundColor = '#2E3442';
+        // taskContainers[i].style.backgroundColor = '#2E3442';
         taskMenuIcons[i].style.color = '#2E3442';
     }
     instruction.style.backgroundColor = '#2E3442';
@@ -116,9 +116,9 @@ themeIcon[2].addEventListener('click', () => {
     const iconFailedTask = document.querySelectorAll('.fa-times');
     const iconCheckTaskOptions = document.querySelectorAll('.check-in-progress');
     const taskMoveArrowsContainer = document.querySelectorAll('.task-move-arrows');
-    const taskDeleteIcon = document.querySelectorAll('.fa-trash');
 
-    const themeThreeElements = [taskText, iconFailedTask, taskMoveArrowsContainer, taskDeleteIcon];
+    const themeThreeElements = [taskText, iconFailedTask, taskMoveArrowsContainer,  ];
+
 
     themeThreeElements.forEach(element => {
         for (i = 0; i < taskText.length; i++) {
